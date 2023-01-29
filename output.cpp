@@ -18,7 +18,7 @@ void output::contains_duplicate() {
     cout << "result 1 = " << sol.containsDuplicate(nums1) << "\n";
     cout << "result 2 = " << sol.containsDuplicate(nums2) << "\n";
     cout << "result 3 = " << sol.containsDuplicate(nums3) << "\n";
-};
+}
 
 void output::is_anagram() {
     cout << "--- valid anagram \n";
@@ -30,7 +30,7 @@ void output::is_anagram() {
     string s22 = "car";
     cout << "result 1 = " << sol.isAnagram(s11, s12) << "\n";
     cout << "result 2 = " << sol.isAnagram(s21, s22) << "\n";
-};
+}
 
 void output::two_sum() {
     cout << "--- two sum \n";
@@ -42,12 +42,12 @@ void output::two_sum() {
 
     vector<int> result1 = sol.twoSum(nums1, 9);
     cout << "result = " << result1[0] << " " << result1[1] << "\n";
-};
+}
 
 void output::group_anagrams() {
     cout << "--- group anagrams \n";
     cout << "no result display \n";
-};
+}
 
 void output::top_k_frequent() {
     cout << "--- top k frequent elements \n";
@@ -59,4 +59,14 @@ void output::top_k_frequent() {
     sol.display_vector(sol.topKFrequent(vec_test5, 1), "result");
     vector<int> vec_test6{1, 2};
     sol.display_vector(sol.topKFrequent(vec_test6, 2), "result");
-};
+}
+
+void output::product_except_self() {
+    cout << "--- product except self \n";
+    
+    solution sol;
+    vector<int> nums1{1, 2, 3, 4};
+    sol.display_vector(sol.productExceptSelf(nums1), "result");
+    vector<int> nums2{0, 0};
+    sol.display_vector(sol.productExceptSelf(nums2), "result");
+}

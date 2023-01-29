@@ -6,5 +6,5 @@ using namespace std;
 int main() {
     
     output result;
-    result.top_k_frequent();
+    result.product_except_self();
 }

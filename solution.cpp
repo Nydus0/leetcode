@@ -1,6 +1,7 @@
 #include "solution.h"
 
-#include <iostream>  // for debug
+#include <iostream>  //for debug
+#include <list>
 #include <map>
 #include <unordered_map>
 
@@ -74,7 +75,7 @@ vector<int> solution::topKFrequent(vector<int>& nums, int k) {
     }
 
     for (auto& elt : map) {
-        // multimap (frequency / number)
+        //multimap (frequency / number)
         multimap.insert({elt.second, elt.first});
     }
 
@@ -86,6 +87,26 @@ vector<int> solution::topKFrequent(vector<int>& nums, int k) {
             result.push_back(elt.second);
         }
         fill_count++;
+    }
+    return result;
+}
+
+std::vector<int> solution::productExceptSelf(std::vector<int>& nums) {
+    // use suffix/prefix approach
+    int size = nums.size();
+    std::vector<int> result(size, 1);
+
+    //prefix
+    int product = 1;
+    for (int i = 1; i < size; i++) {
+        product = product * nums[i - 1];
+        result[i] = product;
+    }
+    //suffix
+    product = 1;  //reset product
+    for (int i = size - 2; i >= 0; i--) {
+        product = product * nums[i + 1];
+        result[i] = result[i] * product;
     }
     return result;
 }

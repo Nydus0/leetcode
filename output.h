@@ -10,4 +10,5 @@ class output {
     void two_sum();
     void group_anagrams();
     void top_k_frequent();
+    void product_except_self();
 };
