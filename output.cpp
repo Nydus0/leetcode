@@ -63,10 +63,43 @@ void output::top_k_frequent() {
 
 void output::product_except_self() {
     cout << "--- product except self \n";
-    
+
     solution sol;
     vector<int> nums1{1, 2, 3, 4};
     sol.display_vector(sol.productExceptSelf(nums1), "result");
     vector<int> nums2{0, 0};
     sol.display_vector(sol.productExceptSelf(nums2), "result");
+}
+
+void output::valid_sudoku() {
+    cout << "--- valid sudoku \n";
+
+    solution sol;
+    vector<vector<char>> board{
+        {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+        {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+        {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+        {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+        {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+        {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+        {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+        {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+        {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+
+    bool result1 = sol.isValidSudoku(board);
+    cout << "result1 = " << result1 << "\n";
+
+    vector<vector<char>> board2{
+        {'.', '.', '.', '9', '.', '.', '.', '.', '.'},
+        {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'.', '.', '3', '.', '.', '.', '.', '.', '1'},
+        {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'1', '.', '.', '.', '.', '.', '3', '.', '.'},
+        {'.', '.', '.', '.', '2', '.', '6', '.', '.'},
+        {'.', '9', '.', '.', '.', '.', '.', '7', '.'},
+        {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'8', '.', '.', '8', '.', '.', '.', '.', '.'}};
+
+    bool result2 = sol.isValidSudoku(board2);
+    cout << "result2 = " << result2 << "\n";
 }

@@ -3,6 +3,7 @@
 #include <iostream>  //for debug
 #include <list>
 #include <map>
+#include <string>
 #include <unordered_map>
 
 using namespace std;
@@ -75,7 +76,7 @@ vector<int> solution::topKFrequent(vector<int>& nums, int k) {
     }
 
     for (auto& elt : map) {
-        //multimap (frequency / number)
+        // multimap (frequency / number)
         multimap.insert({elt.second, elt.first});
     }
 
@@ -96,18 +97,71 @@ std::vector<int> solution::productExceptSelf(std::vector<int>& nums) {
     int size = nums.size();
     std::vector<int> result(size, 1);
 
-    //prefix
+    // prefix
     int product = 1;
     for (int i = 1; i < size; i++) {
         product = product * nums[i - 1];
         result[i] = product;
     }
-    //suffix
-    product = 1;  //reset product
+    // suffix
+    product = 1;  // reset product
     for (int i = size - 2; i >= 0; i--) {
         product = product * nums[i + 1];
         result[i] = result[i] * product;
     }
+    return result;
+}
+
+bool solution::isValidSudoku(vector<vector<char>>& board) {
+    bool result = true;
+    constexpr int SUDOKU_SIZE = 9;
+    vector<vector<int>> columns {{},{},{},{},{},{},{},{},{}};
+    vector<vector<int>> lines {{},{},{},{},{},{},{},{},{}};
+    vector<vector<int>> squares {{},{},{},{},{},{},{},{},{}};
+
+    // fill lines and columns vectors
+    for (int i = 0; i < SUDOKU_SIZE; i++) {
+        for (int j = 0; j < SUDOKU_SIZE; j++) {
+            int candidate {static_cast<int>(board[i][j]) - 48};
+
+            int square_line_index = i / 3 ;
+            int square_column_index = j / 3;
+            int square_number = ( square_line_index * 3) + square_column_index;
+            if (candidate >= 0) {
+                columns[j].push_back(candidate);
+                lines[i].push_back(candidate);
+                squares[square_number].push_back(candidate);
+            }
+        }
+    }
+
+    // detect duplicate in lines
+    for (auto line : lines) {
+        sort(line.begin(), line.end());
+        auto it = std::adjacent_find(line.begin(), line.end());
+        if (it != line.end()) {
+            return false;
+        }
+    }
+
+    // detect duplicate in columns
+    for (auto column : columns) {
+        sort(column.begin(), column.end());
+        auto it = std::adjacent_find(column.begin(), column.end());
+        if (it != column.end()) {
+            return false;
+        }
+    }
+
+    // detect duplicate in squares
+    for (auto square : squares) {
+        sort(square.begin(), square.end());
+        auto it = std::adjacent_find(square.begin(), square.end());
+        if (it != square.end()) {
+            return false;
+        }
+    }
+
     return result;
 }
 

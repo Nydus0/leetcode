@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-    
     output result;
-    result.product_except_self();
+    result.valid_sudoku();
 }

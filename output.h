@@ -11,4 +11,5 @@ class output {
     void group_anagrams();
     void top_k_frequent();
     void product_except_self();
+    void valid_sudoku();
 };
