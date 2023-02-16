@@ -115,18 +115,18 @@ std::vector<int> solution::productExceptSelf(std::vector<int>& nums) {
 bool solution::isValidSudoku(vector<vector<char>>& board) {
     bool result = true;
     constexpr int SUDOKU_SIZE = 9;
-    vector<vector<int>> columns {{},{},{},{},{},{},{},{},{}};
-    vector<vector<int>> lines {{},{},{},{},{},{},{},{},{}};
-    vector<vector<int>> squares {{},{},{},{},{},{},{},{},{}};
+    vector<vector<int>> columns{{}, {}, {}, {}, {}, {}, {}, {}, {}};
+    vector<vector<int>> lines{{}, {}, {}, {}, {}, {}, {}, {}, {}};
+    vector<vector<int>> squares{{}, {}, {}, {}, {}, {}, {}, {}, {}};
 
     // fill lines and columns vectors
     for (int i = 0; i < SUDOKU_SIZE; i++) {
         for (int j = 0; j < SUDOKU_SIZE; j++) {
-            int candidate {static_cast<int>(board[i][j]) - 48};
+            int candidate{static_cast<int>(board[i][j]) - 48};
 
-            int square_line_index = i / 3 ;
+            int square_line_index = i / 3;
             int square_column_index = j / 3;
-            int square_number = ( square_line_index * 3) + square_column_index;
+            int square_number = (square_line_index * 3) + square_column_index;
             if (candidate >= 0) {
                 columns[j].push_back(candidate);
                 lines[i].push_back(candidate);
@@ -163,6 +163,26 @@ bool solution::isValidSudoku(vector<vector<char>>& board) {
     }
 
     return result;
+}
+
+int solution::longestConsecutive(vector<int>& nums) {
+    int count = 1;
+    int final_count = 0;
+
+    if (nums.size() == 0) return 0;
+
+    sort(nums.begin(), nums.end());
+
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] == nums[i - 1] + 1) {
+            count++;
+        } else if (nums[i] != nums[i - 1]) {
+            final_count = max(final_count, count);
+            count = 1; // reset count
+        }
+    }
+    final_count = max(final_count, count);
+    return final_count;
 }
 
 void solution::display_vector(std::vector<int> vec, string name) {

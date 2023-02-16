@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.valid_sudoku();
+    result.longest_consecutive();
 }

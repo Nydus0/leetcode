@@ -103,3 +103,17 @@ void output::valid_sudoku() {
     bool result2 = sol.isValidSudoku(board2);
     cout << "result2 = " << result2 << "\n";
 }
+
+ void output::longest_consecutive() {
+    cout << "--- longest consecutive \n";
+
+    solution sol;
+    vector<int> nums {100,4,200,1,3,2};
+    int result = sol.longestConsecutive(nums);
+    cout <<"result = " << result << "\n";
+
+    vector<int> nums2 {0,3,7,2,5,8,4,6,0,1};
+    result = sol.longestConsecutive(nums2);
+    cout <<"result = " << result << "\n";
+ }
+

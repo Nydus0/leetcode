@@ -12,4 +12,5 @@ class output {
     void top_k_frequent();
     void product_except_self();
     void valid_sudoku();
+    void longest_consecutive();
 };

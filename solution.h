@@ -14,6 +14,7 @@ class solution {
     std::vector<int> topKFrequent(std::vector<int>& nums, int k);
     std::vector<int> productExceptSelf(std::vector<int>& nums);
     bool isValidSudoku(std::vector<std::vector<char>>& board);
+    int longestConsecutive(std::vector<int>& nums);
 
     void display_vector(std::vector<int> vec, std::string name);
     void display_map(std::map<int, int> map, std::string name);
