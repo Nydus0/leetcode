@@ -4,6 +4,10 @@ set (CMAKE_CXX_STANDARD 23)
 
 add_executable(tests
 main.cpp
-solution.cpp
-output.cpp)
+output.cpp
+
+solutions/solution.cpp
+solutions/CsolArraysHashing.cpp
+solutions/CsolTwoPointers.cpp
+)
 

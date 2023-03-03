@@ -1,11 +1,9 @@
 #pragma once
 
-#include <algorithm>
-#include <map>
-#include <string>
-#include <vector>
+#include "solution.h"
 
-class solution {
+class CsolArraysHashing : public solution {
+
    public:
     bool containsDuplicate(std::vector<int>& nums);
     bool isAnagram(std::string s, std::string t);
@@ -16,6 +14,4 @@ class solution {
     bool isValidSudoku(std::vector<std::vector<char>>& board);
     int longestConsecutive(std::vector<int>& nums);
 
-    void display_vector(std::vector<int> vec, std::string name);
-    void display_map(std::map<int, int> map, std::string name);
 };

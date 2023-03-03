@@ -5,6 +5,8 @@
 
 class output {
    public:
+
+   //arrays and hashing
     void contains_duplicate();
     void is_anagram();
     void two_sum();
@@ -13,4 +15,7 @@ class output {
     void product_except_self();
     void valid_sudoku();
     void longest_consecutive();
+
+    //two pointers
+    void is_palindrome();
 };

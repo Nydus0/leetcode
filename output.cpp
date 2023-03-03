@@ -1,16 +1,16 @@
 #include "output.h"
+#include "solutions/CsolArraysHashing.h"
+#include "solutions/CsolTwoPointers.h"
 
 #include <iostream>
 #include <vector>
-
-#include "solution.h"
 
 using namespace std;
 
 void output::contains_duplicate() {
     cout << "--- contains duplicate \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<int> nums1{1, 2, 3, 1};
     vector<int> nums2{1, 2, 3, 4};
     vector<int> nums3{1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
@@ -23,7 +23,7 @@ void output::contains_duplicate() {
 void output::is_anagram() {
     cout << "--- valid anagram \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     string s11 = "anagram";
     string s12 = "nagaram";
     string s21 = "cat";
@@ -35,7 +35,7 @@ void output::is_anagram() {
 void output::two_sum() {
     cout << "--- two sum \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<int> nums1 = {2, 7, 11, 15};
     vector<int> nums2 = {3, 2, 4};
     vector<int> nums3 = {3, 3};
@@ -52,7 +52,7 @@ void output::group_anagrams() {
 void output::top_k_frequent() {
     cout << "--- top k frequent elements \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<int> vec_test4{1, 1, 1, 2, 2, 3};
     sol.display_vector(sol.topKFrequent(vec_test4, 2), "result");
     vector<int> vec_test5{-1, -1};
@@ -64,7 +64,7 @@ void output::top_k_frequent() {
 void output::product_except_self() {
     cout << "--- product except self \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<int> nums1{1, 2, 3, 4};
     sol.display_vector(sol.productExceptSelf(nums1), "result");
     vector<int> nums2{0, 0};
@@ -74,7 +74,7 @@ void output::product_except_self() {
 void output::valid_sudoku() {
     cout << "--- valid sudoku \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<vector<char>> board{
         {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
         {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -107,7 +107,7 @@ void output::valid_sudoku() {
  void output::longest_consecutive() {
     cout << "--- longest consecutive \n";
 
-    solution sol;
+    CsolArraysHashing sol;
     vector<int> nums {100,4,200,1,3,2};
     int result = sol.longestConsecutive(nums);
     cout <<"result = " << result << "\n";
@@ -116,4 +116,12 @@ void output::valid_sudoku() {
     result = sol.longestConsecutive(nums2);
     cout <<"result = " << result << "\n";
  }
+
+  void output::is_palindrome() {
+    cout << "--- is palindrome \n";
+    CsolTwoPointers sol;
+    string input {"0P"};
+    bool result = sol.isPalindrome(input);
+    cout <<"result = " << result << "\n";
+  }
 
