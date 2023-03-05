@@ -18,4 +18,5 @@ class output {
 
     //two pointers
     void is_palindrome();
+    void two_sum_sorted();
 };

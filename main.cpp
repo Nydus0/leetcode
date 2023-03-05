@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.is_palindrome();
+    result.two_sum_sorted();
 }

@@ -125,3 +125,10 @@ void output::valid_sudoku() {
     cout <<"result = " << result << "\n";
   }
 
+ void output::two_sum_sorted() {
+    cout << "--- two_sum_sorted \n";
+    CsolTwoPointers sol;
+    vector input {2,7,11,15};
+    vector<int> result = sol.twoSum(input, 9);
+    cout <<"result = " << result[0] << " " << result[1] << "\n";
+  }
