@@ -104,31 +104,47 @@ void output::valid_sudoku() {
     cout << "result2 = " << result2 << "\n";
 }
 
- void output::longest_consecutive() {
+void output::longest_consecutive() {
     cout << "--- longest consecutive \n";
 
     CsolArraysHashing sol;
-    vector<int> nums {100,4,200,1,3,2};
+    vector<int> nums{100, 4, 200, 1, 3, 2};
     int result = sol.longestConsecutive(nums);
-    cout <<"result = " << result << "\n";
+    cout << "result = " << result << "\n";
 
-    vector<int> nums2 {0,3,7,2,5,8,4,6,0,1};
+    vector<int> nums2{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
     result = sol.longestConsecutive(nums2);
-    cout <<"result = " << result << "\n";
- }
+    cout << "result = " << result << "\n";
+}
 
-  void output::is_palindrome() {
+void output::is_palindrome() {
     cout << "--- is palindrome \n";
     CsolTwoPointers sol;
-    string input {"0P"};
+    string input{"0P"};
     bool result = sol.isPalindrome(input);
-    cout <<"result = " << result << "\n";
-  }
+    cout << "result = " << result << "\n";
+}
 
- void output::two_sum_sorted() {
-    cout << "--- two_sum_sorted \n";
+void output::two_sum_sorted() {
+    cout << "--- two sum sorted \n";
     CsolTwoPointers sol;
-    vector input {2,7,11,15};
+    vector input{2, 7, 11, 15};
     vector<int> result = sol.twoSum(input, 9);
-    cout <<"result = " << result[0] << " " << result[1] << "\n";
-  }
+    cout << "result = " << result[0] << " " << result[1] << "\n";
+}
+
+void output::three_sum() {
+    cout << "--- three sum \n";
+    CsolTwoPointers sol;
+    vector input{-1, 0, 1, 2, -1, -4};
+    vector input2{1,2,-2,-1};
+    vector<int> input3;
+
+    vector<vector<int>> result = sol.threeSum(input);
+
+
+    cout << "result\n";
+    for (auto elt : result ) {
+        cout << "[" << elt[0] <<  " " << elt[1] << " " << elt[2] << "]\n" ;
+    }
+}
