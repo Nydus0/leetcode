@@ -1,6 +1,7 @@
 #include "CsolTwoPointers.h"
 
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <set>
 
@@ -62,8 +63,8 @@ vector<int> CsolTwoPointers::twoSum(vector<int>& numbers, int target) {
 }
 
 vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
-    vector<vector<int>> result; //output result
-    set<vector<int>> solutions; //set container only contains unique values
+    vector<vector<int>> result;  // output result
+    set<vector<int>> solutions;  // set container only contains unique values
     sort(nums.begin(), nums.end());
 
     if (nums.size() == 0) {
@@ -71,9 +72,9 @@ vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
     }
 
     for (int i = 0; i < nums.size() - 1; i++) {
-        int target = -nums[i]; //fix i
-        int low = i+1; //instantiate low pointer
-        int high = nums.size()-1; //instantiate high pointer
+        int target = -nums[i];       // fix i
+        int low = i + 1;             // instantiate low pointer
+        int high = nums.size() - 1;  // instantiate high pointer
 
         while (low < high) {
             int sum = nums[low] + nums[high];
@@ -82,8 +83,8 @@ vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
                 solutions.insert({nums[low], nums[high], nums[i]});
                 // next possible valid target cannot contain either actual low or high
                 // so continue iterating for both indexes
-                    low++;
-                    high--;
+                low++;
+                high--;
             } else if (sum < target) {
                 low++;
             } else  // sum > target
@@ -93,10 +94,45 @@ vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
         }
     }
 
-    //fill result
+    // fill result
     for (auto vec : solutions) {
         result.push_back(vec);
     }
 
     return result;
+}
+
+int CsolTwoPointers::maxArea(vector<int>& height) {
+    int max_area = 0;
+    int size = height.size();
+    int left = 0;
+    int right = size - 1;
+
+    // brute force complexity is O(n^2)
+    // optimal solution with 2 pointers complexity is O(n)
+    // to avoid 2 for loops, set 2 pointers at max distance and test all areas between them
+    // and move lower height pointer towards the other pointers at each iteration
+    // this method ensures all areas are tested and avoids computing some useless areas
+
+    while (left < right) {
+        // compute area
+        int dist = right - left;
+        int min_height = min(height[left], height[right]);
+        int area = dist * min_height;
+        // determine max area
+        if (area > max_area) {
+            max_area = area;
+        }
+        // finally iterate through pointers
+        if (height[left] < height[right]) {
+            left++;
+        } else if (height[left] > height[right]) {
+            right--;
+        } else {
+            left++;
+            right--;
+        }
+    }
+
+    return max_area;
 }

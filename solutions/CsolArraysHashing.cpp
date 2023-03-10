@@ -1,11 +1,11 @@
 #include "CsolArraysHashing.h"
 
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <map>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
 
 using namespace std;
 
@@ -179,7 +179,7 @@ int CsolArraysHashing::longestConsecutive(vector<int>& nums) {
             count++;
         } else if (nums[i] != nums[i - 1]) {
             final_count = max(final_count, count);
-            count = 1; // reset count
+            count = 1;  // reset count
         }
     }
     final_count = max(final_count, count);

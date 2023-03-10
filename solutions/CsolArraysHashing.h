@@ -3,7 +3,6 @@
 #include "solution.h"
 
 class CsolArraysHashing : public solution {
-
    public:
     bool containsDuplicate(std::vector<int>& nums);
     bool isAnagram(std::string s, std::string t);
@@ -13,5 +12,4 @@ class CsolArraysHashing : public solution {
     std::vector<int> productExceptSelf(std::vector<int>& nums);
     bool isValidSudoku(std::vector<std::vector<char>>& board);
     int longestConsecutive(std::vector<int>& nums);
-
 };

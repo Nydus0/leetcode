@@ -1,12 +1,11 @@
 #pragma once
 
-#include <vector>
 #include <string>
+#include <vector>
 
 class output {
    public:
-
-   //arrays and hashing
+    // arrays and hashing
     void contains_duplicate();
     void is_anagram();
     void two_sum();
@@ -16,8 +15,9 @@ class output {
     void valid_sudoku();
     void longest_consecutive();
 
-    //two pointers
+    // two pointers
     void is_palindrome();
     void two_sum_sorted();
     void three_sum();
+    void max_area();
 };

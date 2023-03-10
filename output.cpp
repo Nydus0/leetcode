@@ -1,9 +1,10 @@
 #include "output.h"
-#include "solutions/CsolArraysHashing.h"
-#include "solutions/CsolTwoPointers.h"
 
 #include <iostream>
 #include <vector>
+
+#include "solutions/CsolArraysHashing.h"
+#include "solutions/CsolTwoPointers.h"
 
 using namespace std;
 
@@ -137,14 +138,23 @@ void output::three_sum() {
     cout << "--- three sum \n";
     CsolTwoPointers sol;
     vector input{-1, 0, 1, 2, -1, -4};
-    vector input2{1,2,-2,-1};
+    vector input2{1, 2, -2, -1};
     vector<int> input3;
 
     vector<vector<int>> result = sol.threeSum(input);
 
-
     cout << "result\n";
-    for (auto elt : result ) {
-        cout << "[" << elt[0] <<  " " << elt[1] << " " << elt[2] << "]\n" ;
+    for (auto elt : result) {
+        cout << "[" << elt[0] << " " << elt[1] << " " << elt[2] << "]\n";
     }
+}
+
+void output::max_area() {
+    cout << "--- max area \n";
+
+    CsolTwoPointers sol;
+    vector<int> vec{1, 8, 6, 2, 5, 4, 8, 3, 7};
+    int result = sol.maxArea(vec);
+
+    cout << "result = " << result << "\n";
 }
