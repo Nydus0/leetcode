@@ -1,4 +1,4 @@
-#include "CsolTwoPointers.h"
+#include "SolTwoPointers.h"
 
 #include <algorithm>
 #include <cmath>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-bool CsolTwoPointers::isPalindrome(string s) {
+bool SolTwoPointers::isPalindrome(string s) {
     string raw_str{""};
 
     for (auto symbol : s) {
@@ -37,7 +37,7 @@ bool CsolTwoPointers::isPalindrome(string s) {
     return true;
 }
 
-vector<int> CsolTwoPointers::twoSum(vector<int>& numbers, int target) {
+vector<int> SolTwoPointers::twoSum(vector<int>& numbers, int target) {
     vector<int> result;
 
     // no sorting to do - numbers is already sort
@@ -62,7 +62,7 @@ vector<int> CsolTwoPointers::twoSum(vector<int>& numbers, int target) {
     return {};
 }
 
-vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
+vector<vector<int>> SolTwoPointers::threeSum(vector<int>& nums) {
     vector<vector<int>> result;  // output result
     set<vector<int>> solutions;  // set container only contains unique values
     sort(nums.begin(), nums.end());
@@ -102,7 +102,7 @@ vector<vector<int>> CsolTwoPointers::threeSum(vector<int>& nums) {
     return result;
 }
 
-int CsolTwoPointers::maxArea(vector<int>& height) {
+int SolTwoPointers::maxArea(vector<int>& height) {
     int max_area = 0;
     int size = height.size();
     int left = 0;

@@ -1,4 +1,4 @@
-#include "solutions/solution.h"
+#include "solutions/Solution.h"
 #include "output.h"
 
 using namespace std;

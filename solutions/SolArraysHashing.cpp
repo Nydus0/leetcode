@@ -1,4 +1,4 @@
-#include "CsolArraysHashing.h"
+#include "SolArraysHashing.h"
 
 #include <algorithm>
 #include <iostream>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-bool CsolArraysHashing::containsDuplicate(std::vector<int>& nums) {
+bool SolArraysHashing::containsDuplicate(std::vector<int>& nums) {
     bool result = false;
     std::sort(nums.begin(), nums.end());
     auto it = std::adjacent_find(nums.begin(), nums.end());
@@ -21,14 +21,14 @@ bool CsolArraysHashing::containsDuplicate(std::vector<int>& nums) {
     return result;
 }
 
-bool CsolArraysHashing::isAnagram(string s, string t) {
+bool SolArraysHashing::isAnagram(string s, string t) {
     sort(s.begin(), s.end());
     sort(t.begin(), t.end());
 
     return (s == t);
 }
 
-vector<int> CsolArraysHashing::twoSum(vector<int>& nums, int target) {
+vector<int> SolArraysHashing::twoSum(vector<int>& nums, int target) {
     vector<int> result;
 
     for (int num_id = 0; num_id < nums.size(); num_id++) {
@@ -49,7 +49,7 @@ vector<int> CsolArraysHashing::twoSum(vector<int>& nums, int target) {
     return result;
 }
 
-vector<vector<string>> CsolArraysHashing::groupAnagrams(vector<string>& strs) {
+vector<vector<string>> SolArraysHashing::groupAnagrams(vector<string>& strs) {
     std::unordered_map<string, vector<string>> map;
 
     for (int index = 0; index < strs.size(); index++) {
@@ -66,7 +66,7 @@ vector<vector<string>> CsolArraysHashing::groupAnagrams(vector<string>& strs) {
     return result;
 }
 
-vector<int> CsolArraysHashing::topKFrequent(vector<int>& nums, int k) {
+vector<int> SolArraysHashing::topKFrequent(vector<int>& nums, int k) {
     vector<int> result;
     vector<int> count;
     map<int, int> map;
@@ -93,7 +93,7 @@ vector<int> CsolArraysHashing::topKFrequent(vector<int>& nums, int k) {
     return result;
 }
 
-std::vector<int> CsolArraysHashing::productExceptSelf(std::vector<int>& nums) {
+std::vector<int> SolArraysHashing::productExceptSelf(std::vector<int>& nums) {
     // use suffix/prefix approach
     int size = nums.size();
     std::vector<int> result(size, 1);
@@ -113,7 +113,7 @@ std::vector<int> CsolArraysHashing::productExceptSelf(std::vector<int>& nums) {
     return result;
 }
 
-bool CsolArraysHashing::isValidSudoku(vector<vector<char>>& board) {
+bool SolArraysHashing::isValidSudoku(vector<vector<char>>& board) {
     bool result = true;
     constexpr int SUDOKU_SIZE = 9;
     vector<vector<int>> columns{{}, {}, {}, {}, {}, {}, {}, {}, {}};
@@ -166,7 +166,7 @@ bool CsolArraysHashing::isValidSudoku(vector<vector<char>>& board) {
     return result;
 }
 
-int CsolArraysHashing::longestConsecutive(vector<int>& nums) {
+int SolArraysHashing::longestConsecutive(vector<int>& nums) {
     int count = 1;
     int final_count = 0;
 

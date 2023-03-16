@@ -6,8 +6,8 @@ add_executable(tests
 main.cpp
 output.cpp
 
-solutions/solution.cpp
-solutions/CsolArraysHashing.cpp
-solutions/CsolTwoPointers.cpp
+solutions/Solution.cpp
+solutions/SolArraysHashing.cpp
+solutions/SolTwoPointers.cpp
 )
 
