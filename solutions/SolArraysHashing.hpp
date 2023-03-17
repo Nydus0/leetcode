@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Solution.h"
+#include "Solution.hpp"
 
 class SolArraysHashing : public Solution {
    public:

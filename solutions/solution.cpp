@@ -1,4 +1,4 @@
-#include "Solution.h"
+#include "Solution.hpp"
 
 #include <iostream>
 

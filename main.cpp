@@ -1,5 +1,5 @@
-#include "solutions/Solution.h"
-#include "output.h"
+#include "solutions/Solution.hpp"
+#include "output.hpp"
 
 using namespace std;
 

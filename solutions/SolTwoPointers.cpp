@@ -1,4 +1,4 @@
-#include "SolTwoPointers.h"
+#include "SolTwoPointers.hpp"
 
 #include <algorithm>
 #include <cmath>

@@ -1,4 +1,4 @@
-#include "SolArraysHashing.h"
+#include "SolArraysHashing.hpp"
 
 #include <algorithm>
 #include <iostream>

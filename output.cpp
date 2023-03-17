@@ -1,10 +1,10 @@
-#include "output.h"
+#include "output.hpp"
 
 #include <iostream>
 #include <vector>
 
-#include "solutions/SolArraysHashing.h"
-#include "solutions/SolTwoPointers.h"
+#include "solutions/SolArraysHashing.hpp"
+#include "solutions/SolTwoPointers.hpp"
 
 using namespace std;
 
