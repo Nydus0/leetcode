@@ -56,11 +56,11 @@ void output::top_k_frequent() {
 
     SolArraysHashing sol;
     vector<int> vec_test4{1, 1, 1, 2, 2, 3};
-    sol.display_vector(sol.topKFrequent(vec_test4, 2), "result");
+    sol.display<vector<int>>(sol.topKFrequent(vec_test4, 2), "result");
     vector<int> vec_test5{-1, -1};
-    sol.display_vector(sol.topKFrequent(vec_test5, 1), "result");
+    sol.display<vector<int>>(sol.topKFrequent(vec_test5, 1), "result");
     vector<int> vec_test6{1, 2};
-    sol.display_vector(sol.topKFrequent(vec_test6, 2), "result");
+    sol.display<vector<int>>(sol.topKFrequent(vec_test6, 2), "result");
 }
 
 void output::product_except_self() {
@@ -68,9 +68,9 @@ void output::product_except_self() {
 
     SolArraysHashing sol;
     vector<int> nums1{1, 2, 3, 4};
-    sol.display_vector(sol.productExceptSelf(nums1), "result");
+    sol.display<vector<int>>(sol.productExceptSelf(nums1), "result");
     vector<int> nums2{0, 0};
-    sol.display_vector(sol.productExceptSelf(nums2), "result");
+    sol.display<vector<int>>(sol.productExceptSelf(nums2), "result");
 }
 
 void output::valid_sudoku() {
