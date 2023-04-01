@@ -5,6 +5,7 @@
 
 #include "solutions/SolArraysHashing.hpp"
 #include "solutions/SolTwoPointers.hpp"
+#include "solutions/SolBinarySearch.hpp"
 
 using namespace std;
 
@@ -155,6 +156,17 @@ void output::max_area() {
     SolTwoPointers sol;
     vector<int> vec{1, 8, 6, 2, 5, 4, 8, 3, 7};
     int result = sol.maxArea(vec);
+
+    cout << "result = " << result << "\n";
+}
+
+void output::search() {
+    cout << "--- binary search \n";
+
+    SolBinarySearch sol;
+    vector<int> vec{-1,0,3,5,9,12};
+    int target = 2;
+    int result = sol.search(vec, target);
 
     cout << "result = " << result << "\n";
 }

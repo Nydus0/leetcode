@@ -20,4 +20,7 @@ class output {
     void two_sum_sorted();
     void three_sum();
     void max_area();
+
+    //binary search
+    void search();
 };
