@@ -23,4 +23,5 @@ class output {
 
     //binary search
     void search();
+    void search_matrix();
 };

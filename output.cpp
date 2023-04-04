@@ -4,8 +4,8 @@
 #include <vector>
 
 #include "solutions/SolArraysHashing.hpp"
-#include "solutions/SolTwoPointers.hpp"
 #include "solutions/SolBinarySearch.hpp"
+#include "solutions/SolTwoPointers.hpp"
 
 using namespace std;
 
@@ -164,9 +164,19 @@ void output::search() {
     cout << "--- binary search \n";
 
     SolBinarySearch sol;
-    vector<int> vec{-1,0,3,5,9,12};
+    vector<int> vec{-1, 0, 3, 5, 9, 12};
     int target = 2;
     int result = sol.search(vec, target);
 
+    cout << "result = " << result << "\n";
+}
+
+void output::search_matrix() {
+    cout << "--- matrix binary search \n";
+
+    SolBinarySearch sol;
+    vector<vector<int>> vec{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+    int target = 3;
+    int result = sol.searchMatrix(vec, target);
     cout << "result = " << result << "\n";
 }

@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.search();
+    result.search_matrix();
 }
