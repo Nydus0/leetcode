@@ -1,6 +1,8 @@
 #include "SolBinarySearch.hpp"
 
 #include <algorithm>
+#include <cmath>
+
 using namespace std;
 
 int SolBinarySearch::search(vector<int>& nums, int target) {
@@ -36,4 +38,33 @@ bool SolBinarySearch::searchMatrix(vector<vector<int>>& matrix, int target) {
 
     // binary search in the selected row
     return binary_search(matrix[row_index].begin(), matrix[row_index].end(), target);
+}
+
+int SolBinarySearch::minEatingSpeed(vector<int>& piles, int h) {
+    auto high_speed = *max_element(piles.begin(), piles.end());
+    int low_speed = 1;
+
+    // binary search
+    while (low_speed <= high_speed) {
+        // set mid speed for bs
+        auto k = (low_speed + high_speed) / 2;
+
+        // init number of hours spent for every pile
+        long int hours = 0;  // long int to avoid overflows
+
+        // count total hours spent with k speed
+        for (auto elt : piles) {
+            hours += 1 + ((elt - 1) / k);  // fast ceiling of an integer division
+        }
+
+        // update scope of binary search
+        if (hours <= h) {
+            high_speed = k - 1;
+        } else {
+            low_speed = k + 1;
+        }
+    }
+
+    // in case there are several solutions, return the minimum solution
+    return low_speed;
 }

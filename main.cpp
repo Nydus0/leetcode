@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.search_matrix();
+    result.min_eating_speed();
 }

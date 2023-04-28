@@ -24,4 +24,5 @@ class output {
     //binary search
     void search();
     void search_matrix();
+    void min_eating_speed();
 };

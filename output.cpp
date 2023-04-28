@@ -180,3 +180,15 @@ void output::search_matrix() {
     int result = sol.searchMatrix(vec, target);
     cout << "result = " << result << "\n";
 }
+
+void output::min_eating_speed() {
+     cout << "--- min eating speed \n";
+
+    SolBinarySearch sol;
+    vector<int> piles{1,1,1,999999999};
+    vector<int> piles_2{312884470};
+    int target = 10;
+    int target_2 = 312884469;
+    int result = sol.minEatingSpeed(piles, target);
+    cout << "result = " << result << "\n";
+}
