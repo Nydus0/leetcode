@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Solution.hpp"
+#include "solution.hpp"
 
-class SolArraysHashing : public Solution {
+class sol_arrays_hashing : public solution {
    public:
     bool containsDuplicate(std::vector<int>& nums);
     bool isAnagram(std::string s, std::string t);

@@ -1,4 +1,4 @@
-#include "SolArraysHashing.hpp"
+#include "sol_arrays_hashing.hpp"
 
 #include <algorithm>
 #include <iostream>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-bool SolArraysHashing::containsDuplicate(std::vector<int>& nums) {
+bool sol_arrays_hashing::containsDuplicate(std::vector<int>& nums) {
     bool result = false;
     std::sort(nums.begin(), nums.end());
     auto it = std::adjacent_find(nums.begin(), nums.end());
@@ -21,14 +21,14 @@ bool SolArraysHashing::containsDuplicate(std::vector<int>& nums) {
     return result;
 }
 
-bool SolArraysHashing::isAnagram(string s, string t) {
+bool sol_arrays_hashing::isAnagram(string s, string t) {
     sort(s.begin(), s.end());
     sort(t.begin(), t.end());
 
     return (s == t);
 }
 
-vector<int> SolArraysHashing::twoSum(vector<int>& nums, int target) {
+vector<int> sol_arrays_hashing::twoSum(vector<int>& nums, int target) {
     vector<int> result;
 
     for (int num_id = 0; num_id < nums.size(); num_id++) {
@@ -49,7 +49,7 @@ vector<int> SolArraysHashing::twoSum(vector<int>& nums, int target) {
     return result;
 }
 
-vector<vector<string>> SolArraysHashing::groupAnagrams(vector<string>& strs) {
+vector<vector<string>> sol_arrays_hashing::groupAnagrams(vector<string>& strs) {
     std::unordered_map<string, vector<string>> map;
 
     for (int index = 0; index < strs.size(); index++) {
@@ -66,7 +66,7 @@ vector<vector<string>> SolArraysHashing::groupAnagrams(vector<string>& strs) {
     return result;
 }
 
-vector<int> SolArraysHashing::topKFrequent(vector<int>& nums, int k) {
+vector<int> sol_arrays_hashing::topKFrequent(vector<int>& nums, int k) {
     vector<int> result;
     vector<int> count;
     map<int, int> map;
@@ -93,7 +93,7 @@ vector<int> SolArraysHashing::topKFrequent(vector<int>& nums, int k) {
     return result;
 }
 
-std::vector<int> SolArraysHashing::productExceptSelf(std::vector<int>& nums) {
+std::vector<int> sol_arrays_hashing::productExceptSelf(std::vector<int>& nums) {
     // use suffix/prefix approach
     int size = nums.size();
     std::vector<int> result(size, 1);
@@ -113,7 +113,7 @@ std::vector<int> SolArraysHashing::productExceptSelf(std::vector<int>& nums) {
     return result;
 }
 
-bool SolArraysHashing::isValidSudoku(vector<vector<char>>& board) {
+bool sol_arrays_hashing::isValidSudoku(vector<vector<char>>& board) {
     bool result = true;
     constexpr int SUDOKU_SIZE = 9;
     vector<vector<int>> columns{{}, {}, {}, {}, {}, {}, {}, {}, {}};
@@ -166,7 +166,7 @@ bool SolArraysHashing::isValidSudoku(vector<vector<char>>& board) {
     return result;
 }
 
-int SolArraysHashing::longestConsecutive(vector<int>& nums) {
+int sol_arrays_hashing::longestConsecutive(vector<int>& nums) {
     int count = 1;
     int final_count = 0;
 

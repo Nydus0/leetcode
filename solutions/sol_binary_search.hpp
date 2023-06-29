@@ -1,10 +1,11 @@
 #pragma once
 
-#include "Solution.hpp"
+#include "solution.hpp"
 
-class SolBinarySearch : public Solution {
+class sol_binary_search : public solution {
    public:
     int search(std::vector<int>& nums, int target);
     bool searchMatrix(std::vector<std::vector<int>>& matrix, int target);
     int minEatingSpeed(std::vector<int>& piles, int h);
+    int findMin(std::vector<int>& nums);
 };

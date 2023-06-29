@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-class Solution {
+class solution {
    public:
     template <typename T>
     void display(T container, std::string name);

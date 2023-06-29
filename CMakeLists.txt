@@ -6,9 +6,9 @@ add_executable(
     ${CMAKE_PROJECT_NAME}
     main.cpp
     output.cpp
-    solutions/Solution.cpp
-    solutions/SolArraysHashing.cpp
-    solutions/SolTwoPointers.cpp
-    solutions/SolBinarySearch.cpp
+    solutions/solution.cpp
+    solutions/sol_arrays_hashing.cpp
+    solutions/sol_two_pointers.cpp
+    solutions/sol_binary_search.cpp
 )
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Solution.hpp"
+#include "solution.hpp"
 
-class SolTwoPointers : public Solution {
+class sol_two_pointers : public solution {
    public:
     bool isPalindrome(std::string s);
     std::vector<int> twoSum(std::vector<int>& numbers, int target);
