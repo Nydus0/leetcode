@@ -70,19 +70,21 @@ vector<int> sol_arrays_hashing::topKFrequent(vector<int>& nums, int k) {
     vector<int> result;
     vector<int> count;
     map<int, int> map;
-    multimap<int, int, greater<int>> multimap;
+    vector<pair<int,int>> vec;
 
     for (auto& elt : nums) {
         map[elt]++;
     }
 
     for (auto& elt : map) {
-        // multimap (frequency / number)
-        multimap.insert({elt.second, elt.first});
+        // vector (frequency / number)
+        vec.push_back(make_pair(elt.second, elt.first));
     }
 
+    sort(vec.begin(), vec.end(), greater<pair<int, int>>());
+
     int fill_count = 0;
-    for (auto& elt : multimap) {
+    for (auto& elt : vec) {
         if (fill_count >= k) {
             return result;
         } else {
