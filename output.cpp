@@ -192,3 +192,12 @@ void output::min_eating_speed() {
     int result = sol.minEatingSpeed(piles, target);
     cout << "result = " << result << "\n";
 }
+
+void output::find_min() {
+     cout << "--- find min in rotated sorted array \n";
+
+     sol_binary_search sol;
+     vector<int> nums{11,13,15,17};
+     int result = sol.findMin(nums);
+     cout << "result = " << result << "\n";
+}

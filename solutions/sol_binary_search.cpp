@@ -57,7 +57,7 @@ int sol_binary_search::minEatingSpeed(vector<int>& piles, int h) {
             hours += 1 + ((elt - 1) / k);  // fast ceiling of an integer division
         }
 
-        // update scope of binary search
+        // update range of binary search
         if (hours <= h) {
             high_speed = k - 1;
         } else {
@@ -70,6 +70,29 @@ int sol_binary_search::minEatingSpeed(vector<int>& piles, int h) {
 }
 
 int sol_binary_search::findMin(std::vector<int>& nums) {
-    
-    return 0;
+    int size = nums.size() - 1;
+    // init binary search range
+    int upper_bound = size;
+    int lower_bound = 0;
+    // init index at middle of input vector
+    int index = size / 2; 
+
+    // binary search
+    while (index != lower_bound && index != upper_bound) {
+        // update range of binary search
+        if (nums[index] < nums[upper_bound]) {
+            upper_bound = index;
+        } else {
+            lower_bound = index;
+        }
+        //reset index at middle of updated range
+        index = (lower_bound + upper_bound) / 2;
+    }
+
+    //select minimum
+    if (nums[upper_bound] < nums[lower_bound]) {
+        return nums[upper_bound];
+    } else {
+        return nums[lower_bound];
+    }
 }

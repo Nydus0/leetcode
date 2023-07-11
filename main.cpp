@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.min_eating_speed();
+    result.find_min();
 }
