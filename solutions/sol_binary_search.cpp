@@ -77,7 +77,7 @@ int sol_binary_search::findMin(std::vector<int>& nums) {
     // init index at middle of input vector
     int index = size / 2; 
 
-    // binary search
+    // binary search for search of minimum
     while (index != lower_bound && index != upper_bound) {
         // update range of binary search
         if (nums[index] < nums[upper_bound]) {
@@ -95,4 +95,54 @@ int sol_binary_search::findMin(std::vector<int>& nums) {
     } else {
         return nums[lower_bound];
     }
+}
+
+int sol_binary_search::search_in_rotated_array(vector<int>& nums, int target) {
+    int size = nums.size() - 1;
+    // init binary search range
+    int upper_bound = size;
+    int lower_bound = 0;
+    // init index at middle of input vector
+    int index = size / 2;
+
+    // binary search for search of index of minimum
+    while (index != lower_bound && index != upper_bound) {
+        // update range of binary search
+        if (nums[index] < nums[upper_bound]) {
+            upper_bound = index;
+        } else {
+            lower_bound = index;
+        }
+        // reset index at middle of updated range
+        index = (lower_bound + upper_bound) / 2;
+    }
+
+    // select index of minimum
+    if (nums[upper_bound] < nums[lower_bound]) {
+        index = upper_bound;
+    } else {
+        index = lower_bound;
+    }
+
+    // rotate to get sorted ascending data
+    rotate(nums.begin(), nums.begin() + index, nums.end());
+
+    // binary search for target
+    auto target_it = equal_range(nums.begin(), nums.end(), target);
+
+    int result = distance(nums.begin(), target_it.first) + index;
+
+    // cases when target does not exist in nums
+    if (target_it.first == nums.end() // no elements not less than target
+    || (target_it.first == target_it.second)) // first element greater than value equals last element not less than target
+    { 
+        result = -1;
+    }
+
+    // correct std::distance formula in case of vector of 2 elements
+    if (result > size) {
+        result -= (size + 1);
+    }
+
+    return result;
 }

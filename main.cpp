@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.find_min();
+    result.search_in_rotated_array();
 }

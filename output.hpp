@@ -26,4 +26,5 @@ class output {
     void search_matrix();
     void min_eating_speed();
     void find_min();
+    void search_in_rotated_array();
 };

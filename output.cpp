@@ -182,7 +182,7 @@ void output::search_matrix() {
 }
 
 void output::min_eating_speed() {
-     cout << "--- min eating speed \n";
+    cout << "--- min eating speed \n";
 
     sol_binary_search sol;
     vector<int> piles{1,1,1,999999999};
@@ -200,4 +200,15 @@ void output::find_min() {
      vector<int> nums{11,13,15,17};
      int result = sol.findMin(nums);
      cout << "result = " << result << "\n";
+}
+
+void output::search_in_rotated_array() {
+    cout << "--- search in rotated sorted array \n";
+
+    sol_binary_search sol;
+    vector<int> nums{4,5,6,7,0,1,2};
+    vector<int> nums2{3,1};
+    int target = 3;
+    int result = sol.search_in_rotated_array(nums2, target);
+    cout << "result = " << result << "\n";
 }
