@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.search_in_rotated_array();
+    result.time_map();
 }

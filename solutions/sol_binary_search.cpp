@@ -75,7 +75,7 @@ int sol_binary_search::findMin(std::vector<int>& nums) {
     int upper_bound = size;
     int lower_bound = 0;
     // init index at middle of input vector
-    int index = size / 2; 
+    int index = size / 2;
 
     // binary search for search of minimum
     while (index != lower_bound && index != upper_bound) {
@@ -85,11 +85,11 @@ int sol_binary_search::findMin(std::vector<int>& nums) {
         } else {
             lower_bound = index;
         }
-        //reset index at middle of updated range
+        // reset index at middle of updated range
         index = (lower_bound + upper_bound) / 2;
     }
 
-    //select minimum
+    // select minimum
     if (nums[upper_bound] < nums[lower_bound]) {
         return nums[upper_bound];
     } else {
@@ -133,9 +133,9 @@ int sol_binary_search::search_in_rotated_array(vector<int>& nums, int target) {
     int result = distance(nums.begin(), target_it.first) + index;
 
     // cases when target does not exist in nums
-    if (target_it.first == nums.end() // no elements not less than target
-    || (target_it.first == target_it.second)) // first element greater than value equals last element not less than target
-    { 
+    if (target_it.first == nums.end()              // no elements not less than target
+        || (target_it.first == target_it.second))  // first element greater than value equals last element not less than target
+    {
         result = -1;
     }
 
@@ -145,4 +145,23 @@ int sol_binary_search::search_in_rotated_array(vector<int>& nums, int target) {
     }
 
     return result;
+}
+
+TimeMap::TimeMap() {}
+
+void TimeMap::set(string key, string value, int timestamp) {
+    _hashmap[key].push_back(make_pair(value, timestamp));
+}
+
+string TimeMap::get(string key, int timestamp) {
+    // all the timestamps are strictly increasing so we can directly use binary search on timestamps
+    // user upper_bound : we want 1st elt verifying elt.timestamp > timestamp
+    auto it = upper_bound(_hashmap[key].begin(), _hashmap[key].end(), pair<string, int>("", timestamp),
+                          // create lambda to specialize comparison with timestamp => comp(value, element)
+                          [](const pair<string, int>& pair_a, const pair<string, int>& pair_b) {
+                              return pair_a.second < pair_b.second;
+                          });
+
+    // return value of elt just before result of binary search
+    return (it == _hashmap[key].begin()) ? "" : prev(it)->first;
 }

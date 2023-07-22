@@ -212,3 +212,8 @@ void output::search_in_rotated_array() {
     int result = sol.search_in_rotated_array(nums2, target);
     cout << "result = " << result << "\n";
 }
+
+void output::time_map() {
+    cout << "--- time map \n";
+    cout << "no output implementation yet \n";
+}
