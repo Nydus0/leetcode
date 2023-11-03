@@ -28,4 +28,7 @@ class output {
     void find_min();
     void search_in_rotated_array();
     void time_map();
+
+    //trees
+    void invert_tree();
 };

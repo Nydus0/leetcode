@@ -217,3 +217,9 @@ void output::time_map() {
     cout << "--- time map \n";
     cout << "no output implementation yet \n";
 }
+
+void output::invert_tree() {
+    cout << "--- invert tree \n";
+    cout << "no output implementation yet \n";
+}
+

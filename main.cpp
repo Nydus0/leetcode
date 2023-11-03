@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.time_map();
+    result.invert_tree();
 }
