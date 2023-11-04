@@ -6,13 +6,15 @@ add_executable(
     ${CMAKE_PROJECT_NAME}
 
     #core sources
-    main.cpp
-    output.cpp
+    main.cc
+    output.cc
 
-    solutions/solution.cpp
-    solutions/sol_arrays_hashing.cpp
-    solutions/sol_two_pointers.cpp
-    solutions/sol_binary_search.cpp
+    solutions/solution.cc
+    solutions/sol_arrays_hashing.cc
+    solutions/sol_two_pointers.cc
+    solutions/sol_binary_search.cc
+
+    tools/TimeMap.cc
 
     #header only sources
     tools/node.hpp
