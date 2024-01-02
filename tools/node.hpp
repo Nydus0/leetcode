@@ -1,7 +1,7 @@
 #pragma once
 
 class node {
-    public:
+   public:
     int val;
     node *left;
     node *right;

@@ -9,7 +9,6 @@ add_executable(
     main.cc
     output.cc
 
-    solutions/solution.cc
     solutions/sol_arrays_hashing.cc
     solutions/sol_two_pointers.cc
     solutions/sol_binary_search.cc
@@ -18,5 +17,6 @@ add_executable(
 
     #header only sources
     tools/node.hpp
+    solutions/solution.hpp
 )
 

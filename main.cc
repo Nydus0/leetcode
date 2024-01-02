@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     output result;
-    result.invert_tree();
+    //result.invert_tree();
 }

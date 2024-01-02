@@ -7,4 +7,5 @@
 class sol_trees : public solution {
     public:
     node* invertTree(node* root);
+    int maxDepth(node* root);
 };

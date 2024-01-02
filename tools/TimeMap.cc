@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 void TimeMap::set(string key, string value, int timestamp) {
     _hashmap[key].push_back(make_pair(value, timestamp));
 }

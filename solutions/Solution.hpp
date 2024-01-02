@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
@@ -7,10 +8,21 @@
 class solution {
    public:
     template <typename T>
-    void display(T container, std::string name);
+    void display(const T& container, std::string name) {
+        std::cout << name << ": ";
+        for (const auto& elt : container) {
+            std::cout << elt << " ";
+        }
+        std::cout << "\n";
+    }
 
-   private:
-    void display_vector(std::vector<int> vec, std::string name);
-    void display_map(std::map<int, int> map, std::string name);
-    void display_string(std::string str, std::string name);
+    template <typename T>
+    void detailed_display(const T& container, std::string name) {
+        std::cout << name << ": ";
+
+        unsigned int index = 0;
+        for (unsigned int index = 0; index < container.size(); index++) {
+            std::cout << name << "[" << index << "] = " << container[index] << "\n";
+        }
+    }
 };
