@@ -223,3 +223,8 @@ void output::invert_tree() {
     cout << "no output implementation yet \n";
 }
 
+void output::max_depth() {
+    cout << "--- max depth \n";
+    cout << "no output implementation yet \n";
+}
+

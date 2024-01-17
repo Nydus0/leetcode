@@ -20,7 +20,7 @@ static void detailed_display(const T& container, std::string name) {
 
     unsigned int index = 0;
     for (unsigned int index = 0; index < container.size(); index++) {
-        std::cout << name << "[" << index << "] = " << container[index] << "\n";
+        std::cout << name <<  "[" << index << "] = " << container[index] << "\n";
     }
 }
 
