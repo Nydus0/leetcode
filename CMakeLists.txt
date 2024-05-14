@@ -12,6 +12,7 @@ add_executable(
     solutions/sol_arrays_hashing.cc
     solutions/sol_two_pointers.cc
     solutions/sol_binary_search.cc
+    solutions/sol_trees.cc
 
     tools/TimeMap.cc
 

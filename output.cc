@@ -228,3 +228,8 @@ void output::max_depth() {
     cout << "no output implementation yet \n";
 }
 
+void output::diameter() {
+    cout << "--- diameter \n";
+    cout << "no output implementation yet \n";
+}
+

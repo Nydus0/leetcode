@@ -32,4 +32,5 @@ class output {
     //trees
     void invert_tree();
     void max_depth();
+    void diameter();
 };

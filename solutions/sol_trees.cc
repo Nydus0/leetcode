@@ -19,15 +19,33 @@ node* sol_trees::invertTree(node* root) {
 }
 
 int sol_trees::maxDepth(node* root) {
-    static int max_depth = 0;
-
     if (root) {
         int incr_left = maxDepth(root->left);
         int incr_right = maxDepth(root->right);
-        max_depth = max(incr_left, incr_right) + 1;
+        return max(incr_left, incr_right) + 1;
     } else {
         return 0;
     }
 
-    return max_depth;
+    return 0;
+}
+
+int sol_trees::diameterOfBinaryTree(node* root) {
+    int diameter = 0;
+    update_diameter(root, diameter);
+    return diameter;
+}
+
+int sol_trees::update_diameter(node* root, int& diameter) {
+    // stop recursion
+    if (!root) {
+        return 0;
+    }
+
+    // recursion action
+    int left_height = update_diameter(root->left, diameter);
+    int right_height = update_diameter(root->right, diameter);
+    diameter = max(left_height + right_height, diameter);
+
+    return max(left_height, right_height) + 1;
 }
