@@ -1,7 +1,6 @@
 #include "sol_arrays_hashing.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <list>
 #include <map>
 #include <string>
