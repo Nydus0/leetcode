@@ -8,16 +8,16 @@
 using namespace std;
 
 bool isPalindrome(string s) {
-    string raw_str{""};
+    string raw_str;
 
-    for (auto symbol : s) {
+    for (const auto symbol : s) {
         // test ascii symbols
         if ((symbol >= 48 && symbol <= 57) || (symbol >= 65 && symbol <= 90) || (symbol >= 97 && symbol <= 122)) {
             raw_str += symbol;
         }
     }
 
-    transform(raw_str.begin(), raw_str.end(), raw_str.begin(), [](unsigned char c) { return std::tolower(c); });
+    ranges::transform(raw_str, raw_str.begin(), [](const unsigned char c) { return std::tolower(c); });
 
     int left_index = 0;
     int right_index = raw_str.size() - 1;
@@ -37,29 +37,30 @@ bool isPalindrome(string s) {
     return true;
 }
 
-vector<int> twoSum(vector<int>& numbers, int target) {
+vector<int> twoSumPointers(vector<int>& numbers, int target) {
     vector<int> result;
 
-    // no sorting to do - numbers is already sort
+    // no sorting to do - numbers is already sorted
 
     int l_index = 0;
     int r_index = numbers.size() - 1;
 
     while (l_index < r_index) {
-        int sum = numbers[l_index] + numbers[r_index];
+        const int sum = numbers[l_index] + numbers[r_index];
 
         if (sum == target) {
             result.push_back(l_index + 1);
             result.push_back(r_index + 1);
             return result;
-        } else if (sum < target) {
+        }
+        if (sum < target) {
             l_index++;
         } else  // sum > target
         {
             r_index--;
         }
     }
-    return {};
+    return result;
 }
 
 vector<vector<int>> threeSum(vector<int>& nums) {

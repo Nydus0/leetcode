@@ -42,8 +42,8 @@ TEST(arrays_hashing, two_sum) {
     vector nums1 {2, 7, 11, 15};
     vector nums2 {3, 2, 4};
 
-    EXPECT_EQ(twoSum(nums1, 9), vector({0, 1}));
-    EXPECT_EQ(twoSum(nums2, 6), vector({1, 2}));
+    EXPECT_EQ(twoSumArrays(nums1, 9), vector({0, 1}));
+    EXPECT_EQ(twoSumArrays(nums2, 6), vector({1, 2}));
 }
 
 

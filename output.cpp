@@ -49,59 +49,6 @@ void output::max_area() {
     cout << "result = " << result << "\n";
 }
 
-void output::search() {
-    cout << "--- binary search \n";
-
-    sol_binary_search sol;
-    vector<int> vec{-1, 0, 3, 5, 9, 12};
-    int target = 2;
-    int result = sol.search(vec, target);
-
-    cout << "result = " << result << "\n";
-}
-
-void output::search_matrix() {
-    cout << "--- matrix binary search \n";
-
-    sol_binary_search sol;
-    vector<vector<int>> vec{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
-    int target = 3;
-    int result = sol.searchMatrix(vec, target);
-    cout << "result = " << result << "\n";
-}
-
-void output::min_eating_speed() {
-    cout << "--- min eating speed \n";
-
-    sol_binary_search sol;
-    vector<int> piles{1,1,1,999999999};
-    vector<int> piles_2{312884470};
-    int target = 10;
-    int target_2 = 312884469;
-    int result = sol.minEatingSpeed(piles, target);
-    cout << "result = " << result << "\n";
-}
-
-void output::find_min() {
-     cout << "--- find min in rotated sorted array \n";
-
-     sol_binary_search sol;
-     vector<int> nums{11,13,15,17};
-     int result = sol.findMin(nums);
-     cout << "result = " << result << "\n";
-}
-
-void output::search_in_rotated_array() {
-    cout << "--- search in rotated sorted array \n";
-
-    sol_binary_search sol;
-    vector<int> nums{4,5,6,7,0,1,2};
-    vector<int> nums2{3,1};
-    int target = 3;
-    int result = sol.search_in_rotated_array(nums2, target);
-    cout << "result = " << result << "\n";
-}
-
 void output::time_map() {
     cout << "--- time map \n";
     cout << "no output implementation yet \n";

@@ -29,7 +29,7 @@ bool isAnagram(string s, string t) {
      * ***/
 }
 
-vector<int> twoSum(vector<int> &nums, int target) {
+vector<int> twoSumArrays(vector<int> &nums, int target) {
     vector<int> result;
 
     for (int num_id = 0; num_id < nums.size(); num_id++) {
