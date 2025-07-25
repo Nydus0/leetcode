@@ -6,7 +6,7 @@ Actual tests are regrouped in this internet page : https://neetcode.io/
 
 ## Build Instructions
 This project uses [CMake](https://cmake.org/) for compilation.  
-It generates a library from the directory **modules**.
+It generates a library from the directory **solutions**.
 
 ## Running Tests
 Test suite uses the [GoogleTest](https://github.com/google/googletest) framework (automatically downloaded via CMake when building).  
