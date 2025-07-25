@@ -1,7 +1,7 @@
 # leetcode
-solving leetcode problems
+Solving leetcode problems.
 
-actual tests are regrouped in this internet page : https://neetcode.io/
+Actual tests are regrouped in this internet page : https://neetcode.io/
 
 ## Build Instructions
 This project uses [CMake](https://cmake.org/) for compilation.  
