@@ -11,7 +11,8 @@ FetchContent_MakeAvailable(googletest)
 
 # create test executable
 add_executable(tests
-        arrays_hashing.cpp)
+        arrays_hashing.cpp
+        binary_search.cpp)
 
 # link with library and GTest
 target_link_libraries(tests
