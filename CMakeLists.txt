@@ -1,8 +1,17 @@
 cmake_minimum_required(VERSION 3.25)
-project(leetcode VERSION 0.1.0)
+project(leetcode)
+
 set (CMAKE_CXX_STANDARD 26)
 
-add_executable(
+# enable and add subdirectory for tests
+enable_testing()
+add_subdirectory(tests)
+
+# add solutions library
+add_subdirectory(solutions)
+target_include_directories(solutions PUBLIC ${CMAKE_SOURCE_DIR})
+
+#[[add_executable(
         ${CMAKE_PROJECT_NAME}
 
         #core sources
@@ -15,5 +24,6 @@ add_executable(
         solutions/sol_trees.cpp
 
         tools/TimeMap.cpp
-)
+        tests/tests.cpp
+)]]
 

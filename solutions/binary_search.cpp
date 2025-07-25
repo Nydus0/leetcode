@@ -1,11 +1,11 @@
-#include "sol_binary_search.hpp"
+#include "solutions/binary_search.hpp"
 
 #include <algorithm>
 #include <cmath>
 
 using namespace std;
 
-int sol_binary_search::search(vector<int>& nums, int target) {
+int search(vector<int>& nums, int target) {
     // find iterator
     auto iterator = lower_bound(nums.begin(), nums.end(), target);
     // if found, get index
@@ -18,7 +18,7 @@ int sol_binary_search::search(vector<int>& nums, int target) {
     return -1;
 }
 
-bool sol_binary_search::searchMatrix(vector<vector<int>>& matrix, int target) {
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
     int n = matrix[0].size();
     int m = matrix.size();
 
@@ -40,7 +40,7 @@ bool sol_binary_search::searchMatrix(vector<vector<int>>& matrix, int target) {
     return binary_search(matrix[row_index].begin(), matrix[row_index].end(), target);
 }
 
-int sol_binary_search::minEatingSpeed(vector<int>& piles, int h) {
+int minEatingSpeed(vector<int>& piles, int h) {
     auto high_speed = *max_element(piles.begin(), piles.end());
     int low_speed = 1;
 
@@ -69,7 +69,7 @@ int sol_binary_search::minEatingSpeed(vector<int>& piles, int h) {
     return low_speed;
 }
 
-int sol_binary_search::findMin(std::vector<int>& nums) {
+int findMin(std::vector<int>& nums) {
     int size = nums.size() - 1;
     // init binary search range
     int upper_bound = size;
@@ -97,7 +97,7 @@ int sol_binary_search::findMin(std::vector<int>& nums) {
     }
 }
 
-int sol_binary_search::search_in_rotated_array(vector<int>& nums, int target) {
+int search_in_rotated_array(vector<int>& nums, int target) {
     int size = nums.size() - 1;
     // init binary search range
     int upper_bound = size;

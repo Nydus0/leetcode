@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 template <typename T>
 static void display(const T& container, std::string name) {

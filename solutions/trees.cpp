@@ -1,8 +1,10 @@
-#include "sol_trees.hpp"
+#include "solutions/trees.hpp"
+
+#include <algorithm>
 
 using namespace std;
 
-node* sol_trees::invertTree(node* root) {
+node* invertTree(node* root) {
     // stop recursion
     if (!root) {
         return root;
@@ -13,12 +15,12 @@ node* sol_trees::invertTree(node* root) {
     invertTree(root->right);
 
     // recursion action
-    swap(root->left, root->right);
+    std::swap(root->left, root->right);
 
     return root;
 }
 
-int sol_trees::maxDepth(node* root) {
+int maxDepth(node* root) {
     if (root) {
         int incr_left = maxDepth(root->left);
         int incr_right = maxDepth(root->right);
@@ -30,13 +32,13 @@ int sol_trees::maxDepth(node* root) {
     return 0;
 }
 
-int sol_trees::diameterOfBinaryTree(node* root) {
+int diameterOfBinaryTree(node* root) {
     int diameter = 0;
     update_diameter(root, diameter);
     return diameter;
 }
 
-int sol_trees::update_diameter(node* root, int& diameter) {
+int update_diameter(node* root, int& diameter) {
     // stop recursion
     if (!root) {
         return 0;
