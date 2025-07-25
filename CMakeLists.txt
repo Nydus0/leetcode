@@ -11,19 +11,3 @@ add_subdirectory(tests)
 add_subdirectory(solutions)
 target_include_directories(solutions PUBLIC ${CMAKE_SOURCE_DIR})
 
-#[[add_executable(
-        ${CMAKE_PROJECT_NAME}
-
-        #core sources
-        main.cpp
-        output.cpp
-
-        solutions/sol_arrays_hashing.cpp
-        solutions/sol_two_pointers.cpp
-        solutions/sol_binary_search.cpp
-        solutions/sol_trees.cpp
-
-        tools/TimeMap.cpp
-        tests/tests.cpp
-)]]
-
