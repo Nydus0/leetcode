@@ -66,14 +66,14 @@ vector<int> twoSumPointers(vector<int>& numbers, int target) {
 vector<vector<int>> threeSum(vector<int>& nums) {
     vector<vector<int>> result;  // output result
     set<vector<int>> solutions;  // set container only contains unique values
-    sort(nums.begin(), nums.end());
+    ranges::sort(nums);
 
-    if (nums.size() == 0) {
+    if (nums.empty()) {
         return result;
     }
 
     for (int i = 0; i < nums.size() - 1; i++) {
-        int target = -nums[i];       // fix i
+        const int target = -nums[i];       // fix i
         int low = i + 1;             // instantiate low pointer
         int high = nums.size() - 1;  // instantiate high pointer
 
@@ -96,7 +96,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
     }
 
     // fill result
-    for (auto vec : solutions) {
+    for (const auto& vec : solutions) {
         result.push_back(vec);
     }
 
@@ -105,7 +105,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 int maxArea(vector<int>& height) {
     int max_area = 0;
-    int size = height.size();
+    const int size = height.size();
     int left = 0;
     int right = size - 1;
 
@@ -117,8 +117,8 @@ int maxArea(vector<int>& height) {
 
     while (left < right) {
         // compute area
-        int dist = right - left;
-        int min_height = min(height[left], height[right]);
+        const int dist = right - left;
+        const int min_height = min(height[left], height[right]);
         int area = dist * min_height;
         // determine max area
         if (area > max_area) {

@@ -1,6 +1,5 @@
 # leetcode
 Solving leetcode problems.
-In some cases solutions do not work on leetcode compiler (due to a use of c++20 features, such as std::ranges and views)
 
 Actual tests are regrouped in this internet page : https://neetcode.io/
 

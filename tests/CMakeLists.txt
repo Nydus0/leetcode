@@ -13,7 +13,8 @@ FetchContent_MakeAvailable(googletest)
 add_executable(tests
         arrays_hashing.cpp
         binary_search.cpp
-        two_pointers.cpp)
+        two_pointers.cpp
+        trees.cpp)
 
 # link with library and GTest
 target_link_libraries(tests
