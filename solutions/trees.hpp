@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../tools/node.hpp"
+#include "../tools/Tree.hpp"
 
 TreeNode *invertTree(TreeNode *root);
 int maxDepth(TreeNode *root);

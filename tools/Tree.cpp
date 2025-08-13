@@ -2,7 +2,7 @@
 // Created by Nydus0 on 12/08/2025.
 //
 
-#include "tools/node.hpp"
+#include "tools/Tree.hpp"
 
 #include <cmath>
 #include <functional>
@@ -12,15 +12,45 @@
 
 using namespace std;
 
-std::vector<int> treeToVector(TreeNode* root) {
-    std::vector<int> result;
-    if (!root) return result;
+Tree::Tree(const std::vector<int> &vals) {
+    if (vals.empty()) return;
+
+    _nodes.emplace_back(make_unique<TreeNode>(vals[0]));
+    auto root = _nodes[0].get();
 
     std::queue<TreeNode*> q;
     q.push(root);
 
+    size_t node_index = 1;
+    while (node_index < vals.size()) {
+        TreeNode* current = q.front();
+        q.pop();
+        if (node_index < vals.size()) {
+            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
+            current->left = _nodes[node_index++].get();
+            q.push(current->left);
+        }
+        if (node_index < vals.size()) {
+            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
+            current->right = _nodes[node_index++].get();
+            q.push(current->right);
+        }
+    }
+}
+
+TreeNode* Tree::getRootNode() const {
+    return _nodes[0].get();
+}
+
+std::vector<int> Tree::toVector() const {
+    std::vector<int> result;
+    if (_nodes.empty()) return result;
+
+    std::queue<TreeNode*> q;
+    q.push(getRootNode());
+
     while (!q.empty()) {
-        TreeNode* node = q.front();
+        const TreeNode* node = q.front();
         q.pop();
         if (node) {
             result.push_back(node->val);
@@ -35,22 +65,23 @@ std::vector<int> treeToVector(TreeNode* root) {
     return result;
 }
 
+void Tree::print() const {
+    if (_nodes.empty()) return;
 
-void printTreeTopDown(TreeNode* root) {
-    if (!root) return;
+    const auto root = getRootNode();
 
     // Compute height
-    std::function<int(TreeNode*)> heightFn = [&](TreeNode* node) {
+    std::function<int(TreeNode *)> heightFn = [&](const TreeNode *node) {
         if (!node) return 0;
         return 1 + std::max(heightFn(node->left), heightFn(node->right));
     };
-    int height = heightFn(root);
+    const int height = heightFn(root);
 
-    int maxWidth = std::pow(2, height) - 1;
-    std::vector levelNodes = { root };
+    const int maxWidth = std::pow(2, height) - 1;
+    std::vector levelNodes = {root};
 
     for (int level = 0; level < height; level++) {
-        int spacing = maxWidth / std::pow(2, level + 1);
+        const int spacing = maxWidth / std::pow(2, level + 1);
 
         // Print node values
         std::cout << std::setw(spacing + 1) << "";
@@ -84,8 +115,8 @@ void printTreeTopDown(TreeNode* root) {
         }
 
         // Build next level
-        std::vector<TreeNode*> nextLevel;
-        for (auto node : levelNodes) {
+        std::vector<TreeNode *> nextLevel;
+        for (auto node: levelNodes) {
             if (node) {
                 nextLevel.push_back(node->left);
                 nextLevel.push_back(node->right);
@@ -96,35 +127,5 @@ void printTreeTopDown(TreeNode* root) {
         }
         levelNodes.swap(nextLevel);
     }
-}
-
-Tree::Tree(const std::vector<int> &vals) : _vals(vals) {
-    if (vals.empty()) return;
-
-    _nodes.emplace_back(make_unique<TreeNode>(vals[0]));
-    auto root = _nodes[0].get();
-
-    std::queue<TreeNode*> q;
-    q.push(root);
-
-    size_t node_index = 1;
-    while (node_index < vals.size()) {
-        TreeNode* current = q.front();
-        q.pop();
-        if (node_index < vals.size()) {
-            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
-            current->left = _nodes[node_index++].get();
-            q.push(current->left);
-        }
-        if (node_index < vals.size()) {
-            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
-            current->right = _nodes[node_index++].get();
-            q.push(current->right);
-        }
-    }
-}
-
-TreeNode* Tree::getRootNode() {
-    return _nodes[0].get();
 }
 
