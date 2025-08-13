@@ -12,8 +12,8 @@ TEST(binary_search, search) {
     vector nums1 {-1, 0, 2, 4, 6, 8};
     vector nums2 {-1 ,0 ,2 ,4 ,6 ,8};
 
-    EXPECT_EQ(bin_search(nums1, 4), 3);
-    EXPECT_EQ(bin_search(nums1, 3), -1);
+    EXPECT_EQ(binSearch(nums1, 4), 3);
+    EXPECT_EQ(binSearch(nums1, 3), -1);
 }
 
 TEST(binary_search, search_matrix) {

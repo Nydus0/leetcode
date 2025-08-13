@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int bin_search(vector<int>& nums, int target) {
+int binSearch(vector<int>& nums, int target) {
     // find iterator
     auto iterator = ranges::lower_bound(nums, target);
     // if found, get index
@@ -123,16 +123,16 @@ int searchInRotatedArray(vector<int>& nums, int target) {
     }
 
     // rotate to get sorted ascending data
-    rotate(nums.begin(), nums.begin() + index, nums.end());
+    ranges::rotate(nums, nums.begin() + index);
 
     // binary search for target
-    auto target_it = equal_range(nums.begin(), nums.end(), target);
+    auto [first_elt, last_elt] = equal_range(nums.begin(), nums.end(), target);
 
-    int result = distance(nums.begin(), target_it.first) + index;
+    int result = distance(nums.begin(), first_elt) + index;
 
     // cases when target does not exist in nums
-    if (target_it.first == nums.end()              // no elements not less than target
-        || (target_it.first == target_it.second))  // first element greater than value equals last element not less than target
+    if (first_elt == nums.end()              // no elements not less than target
+        || (first_elt == last_elt))  // first element greater than value equals last element not less than target
     {
         result = -1;
     }
@@ -143,4 +143,21 @@ int searchInRotatedArray(vector<int>& nums, int target) {
     }
 
     return result;
+}
+
+void TimeMap::set(string key, string value, int timestamp) {
+    _hashmap[key].emplace_back(value, timestamp);
+}
+
+string TimeMap::get(string key, int timestamp) {
+    // all the timestamps are strictly increasing so we can directly use binary search on timestamps
+    // user upper_bound : we want 1st elt verifying elt.timestamp > timestamp
+    auto it = ranges::upper_bound(_hashmap[key], pair<string, int>("", timestamp),
+                                  // create lambda to specialize comparison with timestamp => comp(value, element)
+                                  [](const pair<string, int> &pair_a, const pair<string, int> &pair_b) {
+                                      return pair_a.second < pair_b.second;
+                                  });
+
+    // return value of elt just before result of binary search
+    return (it == _hashmap[key].begin()) ? "" : prev(it)->first;
 }

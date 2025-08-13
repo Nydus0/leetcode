@@ -116,7 +116,7 @@ void Tree::print() const {
 
         // Build next level
         std::vector<TreeNode *> nextLevel;
-        for (auto node: levelNodes) {
+        for (const auto node: levelNodes) {
             if (node) {
                 nextLevel.push_back(node->left);
                 nextLevel.push_back(node->right);
