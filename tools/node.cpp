@@ -10,27 +10,7 @@
 #include <iostream>
 #include <queue>
 
-TreeNode* vectorToTree(const std::vector<int>& nums) {
-    if (nums.empty()) return nullptr;
-    auto* root = new TreeNode(nums[0]);
-    std::queue<TreeNode*> q;
-    q.push(root);
-
-    size_t node_index = 1;
-    while (node_index < nums.size()) {
-        TreeNode* current = q.front();
-        q.pop();
-        if (node_index < nums.size()) {
-            current->left = new TreeNode(nums[node_index++]);
-            q.push(current->left);
-        }
-        if (node_index < nums.size()) {
-            current->right = new TreeNode(nums[node_index++]);
-            q.push(current->right);
-        }
-    }
-    return root;
-}
+using namespace std;
 
 std::vector<int> treeToVector(TreeNode* root) {
     std::vector<int> result;
@@ -67,7 +47,7 @@ void printTreeTopDown(TreeNode* root) {
     int height = heightFn(root);
 
     int maxWidth = std::pow(2, height) - 1;
-    std::vector<TreeNode*> levelNodes = { root };
+    std::vector levelNodes = { root };
 
     for (int level = 0; level < height; level++) {
         int spacing = maxWidth / std::pow(2, level + 1);
@@ -116,5 +96,35 @@ void printTreeTopDown(TreeNode* root) {
         }
         levelNodes.swap(nextLevel);
     }
+}
+
+Tree::Tree(const std::vector<int> &vals) : _vals(vals) {
+    if (vals.empty()) return;
+
+    _nodes.emplace_back(make_unique<TreeNode>(vals[0]));
+    auto root = _nodes[0].get();
+
+    std::queue<TreeNode*> q;
+    q.push(root);
+
+    size_t node_index = 1;
+    while (node_index < vals.size()) {
+        TreeNode* current = q.front();
+        q.pop();
+        if (node_index < vals.size()) {
+            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
+            current->left = _nodes[node_index++].get();
+            q.push(current->left);
+        }
+        if (node_index < vals.size()) {
+            _nodes.emplace_back(make_unique<TreeNode>(vals[node_index]));
+            current->right = _nodes[node_index++].get();
+            q.push(current->right);
+        }
+    }
+}
+
+TreeNode* Tree::getRootNode() {
+    return _nodes[0].get();
 }
 

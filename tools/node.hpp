@@ -1,9 +1,10 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
 class TreeNode {
-   public:
+public:
     int val;
     TreeNode *left;
     TreeNode *right;
@@ -12,9 +13,15 @@ class TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-TreeNode* vectorToTree(const std::vector<int>& nums);
 std::vector<int> treeToVector(TreeNode* root);
-
 void printTreeTopDown(TreeNode* root);
 
+class Tree {
+public:
+    explicit Tree(const std::vector<int> &vals);
+    TreeNode *getRootNode();
 
+private:
+    std::vector<std::unique_ptr<TreeNode> > _nodes;
+    std::vector<int> _vals;
+};
