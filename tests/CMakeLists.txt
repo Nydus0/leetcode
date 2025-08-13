@@ -20,6 +20,7 @@ add_executable(tests
 target_link_libraries(tests
         PRIVATE
         solutions
+        tools
         gtest_main
 )
 

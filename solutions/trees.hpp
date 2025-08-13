@@ -2,7 +2,7 @@
 
 #include "../tools/node.hpp"
 
-node *invertTree(node *root);
-int maxDepth(node *root);
-int diameterOfBinaryTree(node *root);
-int update_diameter(node *root, int &diameter);
+TreeNode *invertTree(TreeNode *root);
+int maxDepth(TreeNode *root);
+int diameterOfBinaryTree(TreeNode *root);
+int update_diameter(TreeNode *root, int &diameter);

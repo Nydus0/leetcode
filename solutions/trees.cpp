@@ -4,7 +4,7 @@
 
 using namespace std;
 
-node* invertTree(node* root) {
+TreeNode* invertTree(TreeNode* root) {
     // stop recursion
     if (!root) {
         return root;
@@ -20,7 +20,7 @@ node* invertTree(node* root) {
     return root;
 }
 
-int maxDepth(node* root) {
+int maxDepth(TreeNode* root) {
     if (root) {
         int incr_left = maxDepth(root->left);
         int incr_right = maxDepth(root->right);
@@ -29,13 +29,13 @@ int maxDepth(node* root) {
     return 0;
 }
 
-int diameterOfBinaryTree(node* root) {
+int diameterOfBinaryTree(TreeNode* root) {
     int diameter = 0;
     update_diameter(root, diameter);
     return diameter;
 }
 
-int update_diameter(node* root, int& diameter) {
+int update_diameter(TreeNode* root, int& diameter) {
     // stop recursion
     if (!root) {
         return 0;

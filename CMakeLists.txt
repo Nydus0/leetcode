@@ -11,3 +11,7 @@ add_subdirectory(tests)
 add_subdirectory(solutions)
 target_include_directories(solutions PUBLIC ${CMAKE_SOURCE_DIR})
 
+# add tools subdirectory
+add_subdirectory(tools)
+target_include_directories(tools PUBLIC ${CMAKE_SOURCE_DIR})
+
